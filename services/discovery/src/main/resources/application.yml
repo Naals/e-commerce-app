@@ -1,0 +1,8 @@
+#services/discovery
+
+
+spring:
+  application:
+    name: discovery-service
+  config:
+    import: optional:configserver:http://localhost:8888

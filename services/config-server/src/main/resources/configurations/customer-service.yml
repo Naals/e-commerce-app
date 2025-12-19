@@ -1,0 +1,12 @@
+#services/config-server/.../resources/configurations/customer-service.yml
+
+spring:
+  mongodb:
+    username: admin
+    password: pass
+    host: localhost
+    port: 27017
+    database: customer
+    authentication-database: admin
+server:
+  port: 8090
