@@ -26,7 +26,7 @@ public class ProductController {
         return ResponseEntity.ok(service.purchaseProducts(req));
     }
 
-    @GetMapping("/${product-id}")
+    @GetMapping("/{product-id}")
     public ResponseEntity<ProductResponse> findById(
             @PathVariable("product-id") Long productId
     ) {
