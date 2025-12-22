@@ -1,4 +1,12 @@
 package com.project.ecommerce.order;
 
-public class OrderResponse {
+import java.math.BigDecimal;
+
+public record OrderResponse(
+        Integer id,
+        String reference,
+        BigDecimal total,
+        PaymentMethod paymentMethod,
+        String customerId
+) {
 }
