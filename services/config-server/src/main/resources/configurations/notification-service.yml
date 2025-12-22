@@ -11,11 +11,11 @@ spring:
       bootstrap-servers: localhost:9092
       group-id: paymentGroup, orderGroup
       auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: '*'
-        spring.json.type.mapping: orderConfirmation:com.project.ecommerce.kafka.OrderConfirmation, paymentConfirmation:com.project.ecommerce.notification.PaymentNotificationRequest
+        spring.json.type.mapping: orderConfirmation:com.project.ecommerce.kafka.order.OrderConfirmation, paymentConfirmation:com.project.ecommerce.kafka.payment.PaymentNotificationRequest
   mail:
     host: localhost
     port: 1025

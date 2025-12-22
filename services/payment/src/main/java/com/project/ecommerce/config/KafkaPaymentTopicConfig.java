@@ -11,7 +11,7 @@ public class KafkaPaymentTopicConfig {
     @Bean
     public NewTopic paymentTopic() {
         return TopicBuilder
-                .name("Payment-topic")
+                .name("payment-topic")
                 .build();
     }
 

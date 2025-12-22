@@ -14,7 +14,7 @@ import static org.springframework.kafka.support.KafkaHeaders.TOPIC;
 @Slf4j
 public class OrderProducer {
 
-    private final KafkaTemplate<String, OrderConfirmation> kafkaTemplate;
+    private KafkaTemplate<String, OrderConfirmation> kafkaTemplate;
 
     public void sendOrderConfirmation(OrderConfirmation orderConfirmation) {
         log.info("Sending order confirmation");
