@@ -1,7 +1,5 @@
 package com.project.ecommerce.email;
 
-
-
 import com.project.ecommerce.kafka.order.Product;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -52,13 +50,17 @@ public class EmailService {
         context.setVariables(variables);
         messageHelper.setSubject(PAYMENT_CONFIRMATION.getSubject());
 
+        messageException(destinationEmail, mimeMessage, messageHelper, templateName, context);
+    }
+
+    private void messageException(String destinationEmail, MimeMessage mimeMessage, MimeMessageHelper messageHelper, String templateName, Context context) {
         try {
             String htmlTemplate = templateEngine.process(templateName, context);
             messageHelper.setText(htmlTemplate, true);
 
             messageHelper.setTo(destinationEmail);
             mailSender.send(mimeMessage);
-            log.info(String.format("INFO - Email successfully sent to %s with template %s ", destinationEmail, templateName));
+            log.info("INFO - Email successfully sent to {} with template {} ", destinationEmail, templateName);
         } catch (MessagingException e) {
             log.warn("WARNING - Cannot send Email to {} ", destinationEmail);
         }
@@ -89,16 +91,7 @@ public class EmailService {
         context.setVariables(variables);
         messageHelper.setSubject(ORDER_CONFIRMATION.getSubject());
 
-        try {
-            String htmlTemplate = templateEngine.process(templateName, context);
-            messageHelper.setText(htmlTemplate, true);
-
-            messageHelper.setTo(destinationEmail);
-            mailSender.send(mimeMessage);
-            log.info(String.format("INFO - Email successfully sent to %s with template %s ", destinationEmail, templateName));
-        } catch (MessagingException e) {
-            log.warn("WARNING - Cannot send Email to {} ", destinationEmail);
-        }
+        messageException(destinationEmail, mimeMessage, messageHelper, templateName, context);
 
     }
 }
