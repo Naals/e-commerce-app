@@ -31,7 +31,7 @@ public class NotificationConsumer {
                 Notification.builder()
                         .type(NotificationType.PAYMENT_CONFIRMATION)
                         .notificationDate(LocalDateTime.now())
-
+                        .paymentConfirmation(paymentConfirmation)
                         .build()
         );
 
@@ -52,6 +52,7 @@ public class NotificationConsumer {
                 Notification.builder()
                         .type(ORDER_CONFIRMATION)
                         .notificationDate(LocalDateTime.now())
+                        .orderConfirmation(orderConfirmation)
                         .build()
         );
 

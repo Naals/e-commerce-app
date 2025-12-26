@@ -10,6 +10,6 @@ public record PaymentNotificationRequest(
         PaymentMethod paymentMethod,
         String customerFirstname,
         String customerLastname,
-        String email
+        String customerEmail
 ) {
 }
