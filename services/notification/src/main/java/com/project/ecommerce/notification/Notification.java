@@ -3,11 +3,7 @@ package com.project.ecommerce.notification;
 
 import com.project.ecommerce.kafka.order.OrderConfirmation;
 import com.project.ecommerce.kafka.payment.PaymentConfirmation;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

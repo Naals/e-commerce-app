@@ -9,13 +9,13 @@ spring:
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
-      group-id: paymentGroup, orderGroup
+      group-id: paymentGroup,orderGroup
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: '*'
-        spring.json.type.mapping: orderConfirmation:com.project.ecommerce.kafka.order.OrderConfirmation, paymentConfirmation:com.project.ecommerce.kafka.payment.PaymentNotificationRequest
+        spring.json.type.mapping: orderConfirmation:com.project.ecommerce.kafka.order.OrderConfirmation, paymentConfirmation:com.project.ecommerce.kafka.payment.PaymentConfirmation
   mail:
     host: localhost
     port: 1025
@@ -25,7 +25,7 @@ spring:
       mail:
         smtp:
           trust: '*'
-        auth: true
+        auth: false
         starttls:
           enabled: true
         connectiontimeout: 5000
@@ -33,3 +33,4 @@ spring:
         writetimeout: 5000
 server:
   port: 8040
+

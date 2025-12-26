@@ -13,9 +13,12 @@ import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static com.project.ecommerce.email.EmailTemplates.*;
+import static com.project.ecommerce.email.EmailTemplates.ORDER_CONFIRMATION;
+import static com.project.ecommerce.email.EmailTemplates.PAYMENT_CONFIRMATION;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.springframework.mail.javamail.MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED;
 
@@ -24,7 +27,7 @@ import static org.springframework.mail.javamail.MimeMessageHelper.MULTIPART_MODE
 @Slf4j
 public class EmailService {
 
-    private  JavaMailSender mailSender;
+    private final JavaMailSender mailSender;
     private final SpringTemplateEngine templateEngine;
 
     @Async
